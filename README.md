@@ -16,6 +16,10 @@ Please have tested in your Dev, Stage environment before you plan for your Produ
 
 ### step 1: Create setupconfig.ini file
 
+### Refer for commands: https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-setup-command-line-options?view=windows-11
+
+Note: ImageIndex=2 (STANDARD EDITION)
+
     [SetupConfig]
     Quiet
     Auto=Upgrade
