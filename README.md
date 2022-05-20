@@ -25,6 +25,31 @@ Please have tested in your Dev, Stage environment before you plan for your Produ
     compat=IgnoreWarning
     copylogs=C:\temp\win_upgrade_logs
 
+### step 2: command or powershell to execute the setup:
+
+    cmd:
+        <windows_2016_or_2019_source>\setup.exe /ConfigFile <setupconfig.ini>
+    
+    setup.cmd
+        start /wait c:\windows_2016_or_2019_source\setup.exe /ConfigFile <setupconfig.ini>
+
+    powershell:
+        $setup = "c:\windows_2016_or_2019_source\setup.exe"
+        $param = "/ConfigFile c:\windows_2016_or_2019_source\setupconfig.ini"
+        Start-process -FilePath $setup -Argumentlist $param
+
+### Using command line or powershell:
+
+If you are using chef to upgrade, use try this:
+
+        windows_package('Windows_upgrade_2019') do
+            action :install
+            source 'c:\windows_2016_or_2019_source\setup.exe'
+            installer_type :custom
+            options '/ConfigFile c:\windows_2016_or_2019_source\setupconfig.ini'
+            timeout 3600
+        end
+
 ## Contributors :
 
     - Author:: Prabu Jaganathan ((mailto:jaganp.architect@gmail.com))
